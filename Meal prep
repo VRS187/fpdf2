@@ -1,0 +1,180 @@
+from fpdf import FPDF
+
+# Define our content for the PDF.
+pdf_title = "Two-Week Mediterranean Meal Prep Plan & Shopping Lists"
+
+# Content for Week 1 and Week 2 Meal Prep Plan and Shopping List.
+content = f"""
+Two-Week Mediterranean Meal Prep Plan & Shopping Lists
+
+------------------------------------------------------------
+OVERALL PLAN:
+------------------------------------------------------------
+For each week, you will prepare six dishes on Sunday. The plan is to
+store four days’ worth of meals in the refrigerator and freeze the remaining
+two days’ portions. Thaw the frozen meals overnight in the refrigerator before serving.
+
+------------------------------------------------------------
+WEEK 1
+------------------------------------------------------------
+Dishes:
+1. Chicken & Vegetable Orzo Bake
+2. Turkey & Sweet Potato Mediterranean Stew
+3. Mediterranean Beef Meatballs with Brown Rice & Tzatziki
+4. Cod & Vegetable Ratatouille
+5. Chicken & Broccoli Pesto Pasta
+6. Mediterranean Lentil & Vegetable Soup
+
+Meal Schedule:
+- Monday: Chicken & Vegetable Orzo Bake (fresh, refrigerated)
+- Tuesday: Mediterranean Beef Meatballs with Brown Rice & Tzatziki (fresh, refrigerated)
+- Wednesday: Cod & Vegetable Ratatouille (fresh, refrigerated)
+- Thursday: Chicken & Broccoli Pesto Pasta (fresh, refrigerated)
+- Friday: Turkey & Sweet Potato Mediterranean Stew (frozen portion thawed overnight)
+- Saturday: Mediterranean Lentil & Vegetable Soup (frozen portion thawed overnight)
+- Sunday: Flexible day (using leftovers or a light meal)
+
+------------------------------------------------------------
+WEEK 1 SHOPPING LIST:
+Proteins:
+- Chicken breast: ~1.2 kg
+- Ground turkey (for stew): 500 g
+- Lean minced beef (for meatballs): 500 g
+- Frozen cod fillets: 400–500 g
+
+Grains & Legumes:
+- Orzo: 300 g
+- Brown rice: 500 g
+- Whole-wheat pasta: 500 g
+- Lentils (green or brown): 300 g
+- Canned chickpeas: 1 can (400 g)
+
+Vegetables:
+- Cherry tomatoes: ~500 g
+- Zucchini: 4 pcs
+- Mixed bell peppers: 4 pcs
+- Eggplant: 1 pc
+- Broccoli: 2 heads
+- Sweet potatoes: 3 pcs
+- Carrots: 4 pcs
+- Celery: 4 stalks
+- Spinach (fresh or frozen): 300 g
+- Onions: 4 pcs
+- Garlic: 1 bulb
+
+Dairy & Alternatives:
+- Greek yogurt (for tzatziki): 500 g
+- Parmesan cheese: 100 g
+
+Herbs, Spices & Pantry Items:
+- Tomato passata: 500 ml
+- Tomato paste: 1 small can
+- Olive oil
+- Dried oregano, cumin, paprika, cinnamon
+- Nuts/seeds for pesto (e.g., walnuts or sunflower seeds)
+- Fresh basil: 1 bunch
+- Fresh parsley: 1 bunch
+- Lemons: 3 pcs
+
+Fruits (for snacks/daytime):
+- Apples: 6–8 pcs
+- Pears: 4–6 pcs
+- Bananas: 1–2 bunches
+- Seasonal berries: 500 g
+- Citrus fruits (oranges/tangerines): 6 pcs
+
+------------------------------------------------------------
+WEEK 2
+------------------------------------------------------------
+Dishes:
+7. Chicken & Chickpea Couscous Bowl
+8. Mediterranean Stuffed Bell Peppers
+9. Oven-Baked Salmon & Roasted Vegetables
+10. Greek-Style Chicken Souvlaki Wraps
+11. Pasta with Tuna, Spinach & Cherry Tomatoes
+12. One-Pan Chicken with Rice & Mediterranean Vegetables
+
+Meal Schedule:
+- Monday: Chicken & Chickpea Couscous Bowl (fresh, refrigerated)
+- Tuesday: Mediterranean Stuffed Bell Peppers (fresh, refrigerated)
+- Wednesday: Greek-Style Chicken Souvlaki Wraps (fresh, refrigerated)
+- Thursday: Pasta with Tuna, Spinach & Cherry Tomatoes (fresh, refrigerated)
+- Friday: Oven-Baked Salmon & Roasted Vegetables (frozen portion thawed overnight)
+- Saturday: One-Pan Chicken with Rice & Mediterranean Vegetables (frozen portion thawed overnight)
+- Sunday: Flexible day (using leftovers or a light meal)
+
+------------------------------------------------------------
+WEEK 2 SHOPPING LIST:
+Proteins:
+- Chicken thigh fillets: ~1 kg (for couscous, one-pan, souvlaki)
+- Lean minced beef or turkey (for stuffed peppers): 500 g
+- Salmon (frozen or fresh): 400–500 g
+- Chicken breast: additional 400–500 g (for souvlaki wraps)
+- Canned tuna in olive oil: 2–3 cans
+
+Grains & Legumes:
+- Couscous: 300–400 g
+- Quinoa or brown rice (for stuffed peppers): 300–400 g
+- Whole-wheat pita bread: package with 4–6 pieces
+- Whole-wheat pasta: 500 g
+
+Vegetables:
+- Cherry tomatoes: ~500 g
+- Cucumbers: 2 pcs
+- Bell peppers: 3–4 pcs
+- Zucchini: 3–4 pcs
+- Broccoli: 1–2 heads
+- Sweet potatoes: 2–3 pcs
+- Lettuce or mixed greens: 1 bag or head (for wraps)
+- Onions: 3 pcs
+- Garlic: 1 bulb
+- Spinach (fresh or frozen): 300 g
+- Fresh herbs: dill (for tzatziki), rosemary, oregano
+
+Dairy & Alternatives:
+- Greek yogurt (for tzatziki): 500 g
+- Feta cheese (for stuffed peppers): 100–150 g
+
+Herbs, Spices & Pantry Items:
+- Olive oil
+- Fresh rosemary, oregano, and dill
+- Lemons: 2–3 pcs
+- Salt and pepper
+
+Fruits (for snacks/daytime):
+- Apples: 6–8 pcs
+- Pears: 4–6 pcs
+- Bananas: 1–2 bunches
+- Seasonal berries: 500 g
+- Citrus fruits (oranges/tangerines): 6 pcs
+
+------------------------------------------------------------
+Freezing & Thawing Guidelines:
+1. Portion each meal immediately after cooking.
+2. Refrigerate the portions planned for the first 4 days. Freeze the portions for Friday & Saturday in airtight, freezer-safe containers.
+3. The night before serving, transfer the frozen meals to the fridge to thaw overnight.
+4. Reheat thoroughly before serving.
+
+------------------------------------------------------------
+Enjoy your healthy Mediterranean meal prep!
+"""
+
+# Create a PDF object and set up the document.
+pdf = FPDF()
+pdf.set_auto_page_break(auto=True, margin=15)
+pdf.add_page()
+pdf.set_font("Arial", 'B', 16)
+pdf.cell(0, 10, pdf_title, ln=True, align="C")
+pdf.ln(10)
+
+# Set normal font for the content.
+pdf.set_font("Arial", size=11)
+
+# Split content into lines and add each to the PDF.
+for line in content.split('\n'):
+    pdf.multi_cell(0, 7, line)
+    
+# Save the PDF to a file.
+pdf.output("Meal_Prep_Plan.pdf")
+
+print("PDF file 'Meal_Prep_Plan.pdf' has been created successfully.")
